@@ -6,7 +6,7 @@ const searchBox = document.querySelector(".search input");
 const searchbtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector('.weather-icon');
 
-// Function to check weather by city name
+
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
@@ -19,7 +19,7 @@ async function checkWeather(city) {
     }
 }
 
-// Function to check weather by latitude and longitude
+
 async function checkWeatherByLocation(lat, lon) {
     const response = await fetch(`${geoApiUrl}lat=${lat}&lon=${lon}&appid=${apiKey}`);
 
@@ -31,7 +31,7 @@ async function checkWeatherByLocation(lat, lon) {
     }
 }
 
-// Update the UI based on weather data
+
 function updateUI(data) {
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
@@ -62,7 +62,7 @@ function updateUI(data) {
     document.querySelector('.weather').style.display = 'block';
 }
 
-// Get current location
+
 function getLocationAndFetchWeather() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -73,20 +73,21 @@ function getLocationAndFetchWeather() {
             },
             (error) => {
                 console.error("Error getting location:", error);
-                // Fallback to a default city if location access is denied
-                checkWeather("New York");
+               
+                checkWeather("Karachi");
             }
         );
     } else {
         console.error("Geolocation is not supported by this browser.");
-        checkWeather("New York"); // Fallback to a default city
+        document.
+        checkWeather("Karachi");
     }
 }
 
-// Event listener for search button
+
 searchbtn.addEventListener('click', () => {
     checkWeather(searchBox.value);
 });
 
-// Automatically get location and fetch weather on page load
+
 getLocationAndFetchWeather();
