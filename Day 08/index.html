@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p>Enter your text or URL</p>
+        <input type="text" placeholder="Text or URL"  id="qrText">
+
+            <div id="imgBox">
+                <img id="qrImage" src="" alt="">
+            </div>
+
+        <button id="generateBtn" onclick="generateQR()">Generate QR Code</button>
+        
+    </div>
+
+    <script>
+
+        let imgBox = document.getElementById('imgBox')
+        let qrImage = document.getElementById('qrImage')
+        let qrText = document.getElementById('qrText')
+        const generateBtn = document.getElementById('generateBtn')
+        const congrats = document.getElementById('congrats');
+        function generateQR(){
+            
+            if(qrText.value.length > 0){
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+                imgBox.classList.add("show-img");
+
+                setTimeout(() => {
+                    triggerFireworks();
+                }, 2000);
+
+            } else {
+                setTimeout(() => {
+                    qrText.classList.add("error");
+                }, 1000);
+            }
+
+        }
+
+        //
+        function triggerFireworks() {
+            for (let i = 0; i < 15; i++) {
+                const firework = document.createElement("div");
+                firework.classList.add("firework");
+
+                // Random position and color
+                firework.style.top = `${Math.random() * window.innerHeight}px`;
+                firework.style.left = `${Math.random() * window.innerWidth}px`;
+                firework.style.backgroundColor = getRandomColor();
+
+                document.body.appendChild(firework);
+
+                // Remove firework after animation
+                firework.addEventListener("animationend", () => {
+                    firework.remove();
+                });
+            }
+        }
+
+        function getRandomColor() {
+            const colors = ["red", "blue", "yellow", "green", "purple", "orange", "pink"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+    </script>
+</body>
+</html>
