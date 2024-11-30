@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    animation: colorCycle 10s linear infinite;
+}
+
+.buttons{
+    margin: 50px;
+
+}
+
+.buttons button {
+    color: #fff;
+    border: 0;
+    outline: 0;
+    width: 120px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.Success{
+    color: white;
+    background: green;
+}
+
+.Error{
+    color: white;
+    background: red;
+}
+
+.Invalid{
+    color: white;
+    background: orange;
+}
+
+#toastBox{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.toast{
+    width: 400px;
+    height: 60px;
+    background: white;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateX(100%);
+    animation: moveLeft 0.5s linear forwards;
+}
+
+.toast i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.error i{
+    color: red;
+}
+
+.toast.invalid i{
+    color: orange;
+}
+
+.toast::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 5s linear forwards;
+}
+
+.toast.error::after{
+    background: red;
+}
+
+.toast.invalid::after{
+    background: orange;
+}
+
+@keyframes moveLeft{
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes anim{
+    100%{
+        width: 0;
+    }
+    
+}
+
+@keyframes colorCycle {
+    0% {
+        background-color: orange;
+    }
+    10% {
+        background-color: #ff7f50;
+    }
+    20% {
+        background-color: #ff6347;
+    }
+    30% {
+        background-color: #ffa500;
+    }
+    40% {
+        background-color: #f0e68c;
+    }
+    50% {
+        background-color: #98fb98;
+    }
+    60% {
+        background-color: #87ceeb;
+    }
+    70% {
+        background-color: #9370db;
+    }
+    80% {
+        background-color: #ff69b4;
+    }
+    90% {
+        background-color: #ff4500;
+    }
+    100% {
+        background-color: orange;
+    }
+}
