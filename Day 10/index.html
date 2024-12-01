@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4b6126811b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <div class="container">
+        
+        
+        <div class="music-player">
+            
+            <nav>
+                <div class="cercle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="cercle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="taimoor.jfif" alt="taimoor" class="songImage">
+            <h1>Leave me alone</h1>
+            <p>Taimor Baig</p>
+
+            
+            <audio id="song">
+                <source src="Leaveme.mp4" type="audio/mpeg">
+            </audio>
+
+            <input type="range" value="0" id="progress">
+
+            <div class="controls">
+                <div>
+                    <i class="fa-solid fa-backward"></i>
+                </div>
+                <div onclick="playPause()">
+                    <i class="fa-solid fa-play" id="ctrlIcon"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-forward"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        const progress = document.getElementById("progress");
+        const song = document.querySelector("audio");
+        const ctrlIcon = document.getElementById("ctrlIcon");
+    
+        song.onloadedmetadata = function () {
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+        };
+    
+        function playPause() {
+            if (song.paused) {
+                song.play();
+                ctrlIcon.classList.remove("fa-play");
+                ctrlIcon.classList.add("fa-pause");
+            } else {
+                song.pause();
+                ctrlIcon.classList.remove("fa-pause");
+                ctrlIcon.classList.add("fa-play");
+            }
+        }
+    
+        song.ontimeupdate = function () {
+            progress.value = song.currentTime;
+        };
+    
+        progress.oninput = function () {
+            song.currentTime = progress.value;
+        };
+    
+        song.onended = function () {
+            ctrlIcon.classList.remove("fa-pause");
+            ctrlIcon.classList.add("fa-play");
+        };
+    </script>
+    
+</body>
+</html>
