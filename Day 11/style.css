@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ef602d, #3a3b3c);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, #ef602d, #d8501a, #3a3b3c, #4ecca3);
+    background-size: 400% 400%; 
+    animation: animatedBackground 15s infinite ease-in-out;
+    z-index: -1; 
+}
+
+.stopwatch {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.stopwatch:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+}
+
+#display-time {
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #ef602d;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.buttons img:nth-child(2){
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(135deg, #e3e3e3, #d9d9d9);
+}
+.buttons img:nth-child(2):hover{
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(135deg, #e3e3e3, #d9d9d9);
+}
+
+.buttons img {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ef602d, #d8501a); /* Orange gradient */
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    padding: 12px;
+}
+
+.buttons img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #d8501a, #b44010); /* Darker orange on hover */
+}
+
+.buttons img:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #b44010, #8a3008); /* Even darker orange on click */
+}
+
+.buttons img:focus {
+    outline: 2px solid #ef602d;
+    outline-offset: 4px;
+}
+
+
+@keyframes animatedBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .stopwatch {
+        padding: 30px;
+    }
+
+    #display-time {
+        font-size: 3.5rem;
+    }
+
+    .buttons img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
