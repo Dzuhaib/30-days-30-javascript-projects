@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup showing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button onclick="openPopup()" type="submit" class="cta"><span>Open Me</span>
+            <svg width="15px" height="10px" viewBox="0 0 13 10">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg></button>
+        <div id="popup" class="popup">
+            <img src="tick.png">
+            <h2>Thank you!</h2>
+            <p>Your form has been submitted successfully.</p>
+            <button class="btn" type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+
+        let popup = document.getElementById('popup')
+
+        function openPopup(){
+            popup.classList.add("open-popup")
+
+        }
+
+        function closePopup(){
+            popup.classList.remove('open-popup')
+        }
+
+    </script>
+</body>
+</html>
