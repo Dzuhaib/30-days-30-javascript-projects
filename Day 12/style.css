@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #304452, #3a3f44, #121212);
+    background-size: 400% 400%;
+    animation: gradientBg 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+@keyframes gradientBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.calculator {
+    background: #1c1f26;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.display input {
+    width: 100%;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 10px;
+    background: #2d2f36;
+    border: none;
+    color: white;
+    box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.1), inset 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+form div {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+form input {
+    border: none;
+    outline: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: #2d2f36;
+    color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+    box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.1), 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form input:hover {
+    transform: scale(1.01);
+    box-shadow: -8px -8px 16px rgba(255, 255, 255, 0.2), 8px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.operator {
+    background: #ff9f43;
+    color: #1c1f26;
+}
+
+.operator:hover {
+    background: #ff6f00;
+}
+
+.equal {
+    background: #33ffd8;
+    color: #1c1f26;
+    grid-column: span 2;
+    width: 150px;
+}
+
+.equal:hover {
+    background: #12c5a8;
+}
+
+input:disabled {
+    background: #2d2f36;
+    color: #aaa;
+}
+
+input[type="button"]:active {
+    box-shadow: inset -8px -8px 16px rgba(255, 255, 255, 0.2), inset 8px 8px 16px rgba(0, 0, 0, 0.3);
+}
